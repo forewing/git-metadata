@@ -1,6 +1,10 @@
 name: 'Git Metadata Helper'
 description: 'Extract metadata of your git repository'
 
+branding:
+  icon: 'tag'
+  color: 'green'
+
 outputs:
   tag-current:
     description: "Current tag name"

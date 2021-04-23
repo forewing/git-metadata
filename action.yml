@@ -4,22 +4,23 @@ description: 'Extract metadata of your git repository'
 outputs:
   tag-current:
     description: "Current tag name"
-    value:
+    value: ${{ steps.run.outputs.tag-current }}
 
   tag-last:
     description: "Last tag name"
-    value:
+    value: ${{ steps.run.outputs.tag-last }}
 
   changes-since-last:
     description: "Changes since last tag"
-    value:
+    value: ${{ steps.run.outputs.changes-since-last }}
 
   changes-formatted:
     description: "Markdown-Formatted version of changes-since-last"
-    value:
+    value: ${{ steps.run.outputs.changes-formatted }}
 
 runs:
   using: "composite"
   steps:
-    - run: bash run.sh
+    - id: run
+      run: bash run.sh
       shell: bash

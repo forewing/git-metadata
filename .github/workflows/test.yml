@@ -1,0 +1,24 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Run Test
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Run Action
+      id: run
+      uses: forewing/git-metadata@master
+
+    - run: |
+        echo tag-current: "${{ steps.run.outputs.tag-current }}"
+        echo tag-last: "${{ steps.run.outputs.tag-last }}"
+        echo changes-since-last: "${{ steps.run.outputs.changes-since-last }}"
+        echo changes-formatted: "${{ steps.run.outputs.changes-formatted }}"
+      shell: bash

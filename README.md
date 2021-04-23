@@ -9,6 +9,15 @@ Extract metadata from your git repository
   uses: forewing/git-metadata@master
 ```
 
+Note: you need set `fetch-depth: 0` for checkout action to provide repository information needed by this action.
+
+```yml
+- name: Checkout
+  uses: actions/checkout@v2
+  with:
+    fetch-depth: 0
+```
+
 ## Outputs
 
 | ID | Description | Exception |

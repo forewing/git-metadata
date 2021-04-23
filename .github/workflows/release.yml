@@ -1,0 +1,27 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  release:
+    name: Build & Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Extract Metadata
+        id: extract
+        uses: forewing/git-metadata@master
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body: ${{ steps.extract.outputs.changes-formatted }}
+          name: Release ${{ steps.extract.outputs.tag-current }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

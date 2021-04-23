@@ -1,0 +1,25 @@
+name: 'Git Metadata'
+description: 'Extract metadata of your git repository'
+
+outputs:
+  tag-current:
+    description: "Current tag name"
+    value:
+
+  tag-last:
+    description: "Last tag name"
+    value:
+
+  changes-since-last:
+    description: "Changes since last tag"
+    value:
+
+  changes-formatted:
+    description: "Markdown-Formatted version of changes-since-last"
+    value:
+
+runs:
+  using: "composite"
+  steps:
+    - run: bash run.sh
+      shell: bash

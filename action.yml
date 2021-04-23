@@ -1,4 +1,4 @@
-name: 'Git Metadata'
+name: 'Git Metadata Helper'
 description: 'Extract metadata of your git repository'
 
 outputs:

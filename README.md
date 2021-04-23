@@ -1,4 +1,4 @@
-# Git Metadata
+# Git Metadata Helper
 
 Extract metadata from your git repository
 

@@ -54,7 +54,7 @@ runs:
         fi
 
         # last tag, changes
-        if TAG_LAST=$(git describe --abbrev=0 ${TAG_CURRENT}^ 2>&-); then
+        if TAG_LAST=$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1) 2>&-); then
             CHANGES_RAW=$(git --no-pager log --oneline --no-decorate ${TAG_LAST}...HEAD 2>&-)
         else
             TAG_LAST="unknown"
